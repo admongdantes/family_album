@@ -47,6 +47,24 @@ var pageIndex = {{pageMap.pageIndex}};
 var pageUnit = {{pageMap.pageUnit}};
 var pageSize = {{pageMap.pageSize}};
 var pageTotal = {{pageMap.pageTotal}};
+
+var localPageIndex = localStorage.getItem('pageIndex'); 
+var isFirstPage = sessionStorage.getItem('isFirstPage'); 
+
+console.log(isFirstPage);
+if(isFirstPage == null) {
+	sessionStorage.setItem('isFirstPage', 'N');
+
+	var tmpPageIndex = localStorage.getItem('pageIndex');
+	console.log('tmpPageIndex : '+tmpPageIndex);
+	if(tmpPageIndex == null) {
+		pageIndex = 1;
+	} else {
+		pageIndex = tmpPageIndex;
+	}
+}
+localStorage.setItem('pageIndex', pageIndex);
+
 var paging = pageNavi(pageIndex, pageUnit, pageSize, pageTotal);
 $('#pagingArea').html(paging);
 </script>
