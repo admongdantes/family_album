@@ -1,6 +1,4 @@
-/**
- * 페이지 네비게이션
- */
+/** 페이지 네비게이션 */
 var pageNavi = function(pageIndex, pageUnit, pageSize, totalCnt) {
 	var pageTotal = Math.ceil(totalCnt / pageUnit);
 	var co = Math.ceil(pageIndex / pageSize);
@@ -9,7 +7,7 @@ var pageNavi = function(pageIndex, pageUnit, pageSize, totalCnt) {
 	endPage = startPage + pageSize - 1;
 	
 	var html = new Array();
-	html.push('<div class="ui pagination menu">');
+	html.push('<div class="ui right floated pagination menu">');
 	
   	if(pageIndex > pageSize) {
   		var prePage = endPage - pageSize; 
@@ -39,6 +37,35 @@ var pageNavi = function(pageIndex, pageUnit, pageSize, totalCnt) {
   	html.push('</div>');
   	
   	return html.join('');
+}
+
+function loginSysFormCheck() {
+	$('.ui.form').form({
+		fields: {
+			userId: {
+				identifier  : 'userId',
+				rules: [
+					{
+						type   : 'empty',
+						prompt : '아이디를 입력하세요.'
+					}
+				]
+			},
+			passwd: {
+				identifier  : 'passwd',
+				rules: [
+					{
+						type   : 'empty',
+						prompt : '비밀번호를 입력하세요.'
+					},
+					{
+						type   : 'length[9]',
+						prompt : '비밀번호는 최소 {ruleValue}자이상 입력해주세요.'
+					}
+				]
+			}
+		}
+	});
 }
 
 function fn_egov_link_page(pageIndex) {

@@ -98,6 +98,7 @@ def getFileList(dir, extfilter = None):
 #print(getFileList('/media/pi/UFD-T7 38AD', ['.mp4']))
 
 app.add_url_rule('/login', 'login', login, methods = ['GET', 'POST'])
+app.add_url_rule('/', 'login', login, methods = ['GET', 'POST'])
 app.add_url_rule('/main', 'main', main, methods = ['GET'])
 app.add_url_rule('/logout', 'logout', logout, methods = ['GET'])
 	

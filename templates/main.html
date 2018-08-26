@@ -9,22 +9,19 @@
 <body>
 <div class="ui container">
 	<div class="ui menu">
-	  	<a class="active item">Editorials</a>
-		<a class="item">Reviews</a>
-	  	<a href="${pageContext.request.contextPath}/dms/web/alog/list.dan" class="item">엑세스 로그</a>
+	  	<a href="/main" class="active item">동영상</a>
 	  <div class="right menu">
+<!--
 		<div class="item">
 			<div class="ui icon input">
 				<input placeholder="검색" type="text">
 				<i class="search link icon"></i>
 			</div>
 		</div>
-		<a href="${pageContext.request.contextPath}/actionLogout2.do" class="ui item">로그아웃</a>
+-->
+		<a href="/logout" class="ui item">로그아웃</a>
 	  </div>
 	</div>
-	<a href="/logout">logout</a><br />
-	main
-	<br />
 	<div class="ui grid stackable container">
 		<div class="four column row center aligned">
 			{% for video in myVideoList %}
