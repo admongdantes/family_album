@@ -1,0 +1,17 @@
+<!doctype html>
+<html>
+<head>
+{% block head %}{% endblock %}
+</head>
+<body>
+<div class="ui container">
+	<div class="ui menu">
+	{% block header %}{% endblock %}
+	</div>
+	{% block grid %}{% endblock %}
+</div>
+<script>
+{% block script %}{% endblock %}
+</script>
+</body>
+</html>

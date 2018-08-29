@@ -1,32 +1,12 @@
-<html>
-<head>
-<title>가족앨범</title>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="keywords" content="" />
-<base target="_self" /> 
-<link type="text/css" rel="stylesheet" href="/static/css/semantic/semantic.css" />
-<script type="text/javascript" src="/static/js/jquery.js"></script>
-<script type="text/javascript" src="/static/css/semantic/semantic.js"></script>
-<script type="text/javascript" src="/static/js/common.js"></script>
-</head>
-<body>
-<div class="ui container">
-	<div class="ui menu">
-	  	<a href="/main" class="active item">동영상</a>
-	  <div class="right menu">
-<!--
-		<div class="item">
-			<div class="ui icon input">
-				<input placeholder="검색" type="text">
-				<i class="search link icon"></i>
-			</div>
-		</div>
--->
-		<a href="/logout" class="ui item">로그아웃</a>
-	  </div>
-	</div>
+{% extends 'layout.html' %}
+{% block head %}
+	{% include 'head.html'%}
+{% endblock %}
+
+{% block header %}
+	{% include 'header.html'%}
+{% endblock %}
+{% block grid %}
 	<div class="ui grid stackable container">
 		<div class="four column row center aligned">
 			{% for video in myVideoList %}
@@ -45,10 +25,8 @@
 			</div>
 		</div>
 	</div>
-</div>
-{{pageIndex}}
-<script>
-var pageIndex = {{pageMap.pageIndex}};
+{% endblock %}
+{% block script %}var pageIndex = {{pageMap.pageIndex}};
 var pageUnit = {{pageMap.pageUnit}};
 var pageSize = {{pageMap.pageSize}};
 var pageTotal = {{pageMap.pageTotal}};
@@ -71,7 +49,4 @@ if(isFirstPage == null) {
 localStorage.setItem('pageIndex', pageIndex);
 
 var paging = pageNavi(pageIndex, pageUnit, pageSize, pageTotal);
-$('#pagingArea').html(paging);
-</script>
-</body>
-</html>
+$('#pagingArea').html(paging);{% endblock %}
